@@ -47,31 +47,41 @@ function ReturnResult (Result) {
         case "Paper" :
             if (Human_Choice === "Scissor") {
                 Human_Point ++
+                return Result = "HumanWin"
             };
 
             if (Human_Choice === "Rock") {
                 AI_point ++
+                return Result = "AIWin"
             };
 
         case "Scissor" :
             if (Human_Choice === "Rock") {
                     Human_Point ++
+                    return Result = "HumanWin"
                 };
     
             if (Human_Choice === "Paper") {
                     AI_point ++
+                    return Result = "AIWin"
                 };    
         case "Rock" :
             if (Human_Choice === "Paper") {
                     Human_Point ++
+                    return Result = "HumanWin"
                 };
     
             if (Human_Choice === "Scissor") {
                     AI_point ++
+                    return Result = "AIWin"
                 };    
 
     }
 }
 
-
+function PlayGame (){
+    while (Human_Point !== 5 && AI_point !== 5) {
+        Easy_AI();
+    };
+};
 

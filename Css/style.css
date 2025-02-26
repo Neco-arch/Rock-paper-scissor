@@ -3,9 +3,59 @@
     gap: 20px;
     justify-content: center;
     align-items: center;  
-    height: 100vh; 
-}    
+    height: 40vh;
+    margin-bottom: auto; 
+}
+
+.Heading {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.Score {
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    gap: 40px;
+}
+
+.ScoreBoard {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+
 button {
-    width: 100px;
+    background-color: whitesmoke;
+    width: 200px;
     height: 25px;
+    border-style: none;
+    box-shadow: 2px 2px 4px black
+}
+
+button:active {
+    background-color: wheat;
+}
+
+
+body {
+    background-color: antiquewhite;
+}
+
+.Paper_div {
+    gap: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+img {
+    height: 200px;
+}
+
+p {
+    text-align: center;
 }
