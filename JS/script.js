@@ -1,87 +1,80 @@
 const Rock_input = document.querySelector(".Rock");
 const Scissor_input = document.querySelector(".Scissors");
 const Paper_input = document.querySelector(".Paper");
+const Restart_Game_Button = document.querySelector(".Restart_Game_Button")
 
-let AI_Choice = Easy_AI()
-let Human_Choice = ""
-let AI_point = 0
-let Human_Point = 0
+const Human_Score = document.querySelector(".Human_Score")
+const AI_Score = document.querySelector(".AI_Score")
+const Game_Result = document.querySelector(".Game_Result")
 
+let AI_point = 0;
+let Human_Point = 0;
 
 function Easy_AI() {
-    let Answer = ""
-    let RandomAI = Math.floor(Math.random() * 3 + 1)
-    if (RandomAI === 1) {
-         return Answer = "Paper"
-    }
-
-    if (RandomAI === 2) {
-        return Answer = "Scissor"
-   }
-
-   if (RandomAI === 3) {
-    return Answer = "Rock"
-}
+    let choices = ["Rock", "Paper", "Scissor"];
+    return choices[Math.floor(Math.random() * 3)];
 }
 
-function PlayerChoice(callback) {
-    Rock_input.addEventListener("mousedown",function (){
-        Human_Choice = "Rock"
-    });
-
-    Paper_input.addEventListener("mousedown",function (){
-        Human_Choice = "Paper"
-    });
-
-    Scissor_input.addEventListener("mousedown",function (){
-        Human_Choice = "Scissor"
-    });
-}
-
-function ReturnResult (Result) {
+function ReturnResult() {
+    let AI_Choice = Easy_AI();
+    
     if (AI_Choice === Human_Choice) {
-        return "Draw"
+        return "Draw!";
     }
 
-    switch (AI_Choice){
-        case "Paper" :
+    switch (AI_Choice) {
+        case "Paper":
             if (Human_Choice === "Scissor") {
-                Human_Point ++
-                return Result = "HumanWin"
-            };
-
+                Human_Point++;
+                return "HumanWin!";
+            }
             if (Human_Choice === "Rock") {
-                AI_point ++
-                return Result = "AIWin"
-            };
+                AI_point++;
+                return "AIWin!";
+            }
+            break;
 
-        case "Scissor" :
+        case "Scissor":
             if (Human_Choice === "Rock") {
-                    Human_Point ++
-                    return Result = "HumanWin"
-                };
-    
+                Human_Point++;
+                return "HumanWin!";
+            }
             if (Human_Choice === "Paper") {
-                    AI_point ++
-                    return Result = "AIWin"
-                };    
-        case "Rock" :
+                AI_point++;
+                return "AIWin!";
+            }
+            break;
+
+        case "Rock":
             if (Human_Choice === "Paper") {
-                    Human_Point ++
-                    return Result = "HumanWin"
-                };
-    
+                Human_Point++;
+                return "HumanWin!";
+            }
             if (Human_Choice === "Scissor") {
-                    AI_point ++
-                    return Result = "AIWin"
-                };    
-
+                AI_point++;
+                return "AIWin!";
+            }
+            break;
     }
 }
 
-function PlayGame (){
-    while (Human_Point !== 5 && AI_point !== 5) {
-        Easy_AI();
-    };
-};
+function PlayGame(choice) {
+    Human_Choice = choice;
+    let result = ReturnResult();
+    Human_Score.textContent = Human_Point;
+    AI_Score.textContent = AI_point;
+    Game_Result.textContent = result
+    
+}
 
+function RestartGame() {
+    AI_Score.textContent = 0;
+    Human_Score.textContent = 0;
+    Game_Result.textContent = ""
+}
+
+
+Rock_input.addEventListener("click", () => PlayGame("Rock"));
+Paper_input.addEventListener("click", () => PlayGame("Paper"));
+Scissor_input.addEventListener("click", () => PlayGame("Scissor"));
+Restart_Game_Button.addEventListener("click", () => RestartGame() );

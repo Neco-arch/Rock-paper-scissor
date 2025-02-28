@@ -28,6 +28,13 @@
     
 }
 
+.Reset-Game {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Courier New', Courier, monospace;
+}
 
 button {
     background-color: whitesmoke;
@@ -58,4 +65,9 @@ img {
 
 p {
     text-align: center;
+}
+
+.Game_Result {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
 }
