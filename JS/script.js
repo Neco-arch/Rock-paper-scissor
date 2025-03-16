@@ -68,6 +68,8 @@ function PlayGame(choice) {
 }
 
 function RestartGame() {
+    AI_point = 0
+    Human_Point = 0
     AI_Score.textContent = 0;
     Human_Score.textContent = 0;
     Game_Result.textContent = ""
